@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerSense — Know What You're Wasting</title>
+
+  <!-- Google Fonts: DM Sans for body text, IBM Plex Mono for labels/numbers -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Our main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       The top bar that stays fixed as you scroll
+  ============================================================ -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <!-- House with energy waves SVG logo -->
+      <svg class="logo-icon" viewBox="0 0 34 34" fill="none">
+        <path d="M17 3L3 14v17h9v-7h10v7h9V14L17 3z" stroke="#1a56db" stroke-width="1.5" fill="none"/>
+        <path d="M11 20 Q17 16.5 23 20" stroke="#1a56db" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <path d="M9 24 Q17 19 25 24" stroke="#1a56db" stroke-width="1" fill="none" opacity="0.3"/>
+        <circle cx="17" cy="20" r="1.8" fill="#1a56db"/>
+      </svg>
+      <span class="logo-text">Power<span class="logo-accent">Sense</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="audit.html" class="nav-link">Your Audit</a></li>
+      <li><a href="why.html" class="nav-link">Why It Matters</a></li>
+    </ul>
+
+    <a href="audit.html" class="btn-nav">Start Audit</a>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+       The first thing people see when they land on the site
+  ============================================================ -->
+  <section class="hero">
+
+    <!-- Left side: headline and buttons -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Free Home Energy Diagnostic
+      </div>
+
+      <h1 class="hero-title">
+        Know exactly what your home is 
+        <span class="text-blue">wasting</span> — and why.
+      </h1>
+
+      <p class="hero-sub">
+        Most energy tools give you one number and stop there. PowerSense shows you 
+        where energy is escaping your home, explains the reason behind each leak, 
+        and gives you a ranked plan to fix it. Free, no signup, takes five minutes.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="audit.html" class="btn-primary">Start Your Free Audit →</a>
+        <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+      </div>
+    </div>
+
+    <!-- Right side: sample results preview card -->
+    <div class="hero-card">
+      <div class="card-header">
+        <span class="card-title">Sample Audit — 3 bed / 2 bath home</span>
+        <span class="badge-warning">HIGH WASTE</span>
+      </div>
+
+      <!-- Waste breakdown bars -->
+      <div class="waste-bars">
+
+        <div class="waste-row">
+          <span class="waste-label">Heating</span>
+          <div class="bar-track">
+            <div class="bar-fill red" style="width: 72%"></div>
+          </div>
+          <span class="waste-pct red">72%</span>
+        </div>
+
+        <div class="waste-row">
+          <span class="waste-label">Cooling</span>
+          <div class="bar-track">
+            <div class="bar-fill amber" style="width: 55%"></div>
+          </div>
+          <span class="waste-pct amber">55%</span>
+        </div>
+
+        <div class="waste-row">
+          <span class="waste-label">Water Heater</span>
+          <div class="bar-track">
+            <div class="bar-fill amber" style="width: 40%"></div>
+          </div>
+          <span class="waste-pct amber">40%</span>
+        </div>
+
+        <div class="waste-row">
+          <span class="waste-label">Appliances</span>
+          <div class="bar-track">
+            <div class="bar-fill blue" style="width: 22%"></div>
+          </div>
+          <span class="waste-pct blue">22%</span>
+        </div>
+
+        <div class="waste-row">
+          <span class="waste-label">Lighting</span>
+          <div class="bar-track">
+            <div class="bar-fill green" style="width: 14%"></div>
+          </div>
+          <span class="waste-pct green">14%</span>
+        </div>
+
+      </div>
+
+      <!-- Summary stats at bottom of card -->
+      <div class="card-stats">
+        <div class="mini-stat">
+          <div class="mini-val red">847 kWh</div>
+          <div class="mini-lbl">Monthly Use</div>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-val amber">$142/mo</div>
+          <div class="mini-lbl">Est. Cost</div>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-val green">$480/yr</div>
+          <div class="mini-lbl">Potential Savings</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       STATS BAR
+       Key numbers that establish credibility immediately
+  ============================================================ -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">35%</div>
+      <div class="stat-label">Average home energy wasted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$1,400</div>
+      <div class="stat-label">Avg. annual waste per household</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">20%</div>
+      <div class="stat-label">Of U.S. emissions from homes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">5 min</div>
+      <div class="stat-label">To complete your audit</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Free</div>
+      <div class="stat-label">Always, no signup needed</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       Three step explanation of the tool
+  ============================================================ -->
+  <section class="section bg-white" id="how-it-works">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Three steps to understanding your home</h2>
+
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <div class="step-number">STEP 01 — INPUT</div>
+          <span class="step-icon">🏠</span>
+          <h3 class="step-title">Tell Us About Your Home</h3>
+          <p class="step-desc">
+            Enter basic details about your home — size, heating and cooling system, 
+            insulation type, and which appliances you use most. No account needed, 
+            nothing stored.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">STEP 02 — ANALYZE</div>
+          <span class="step-icon">⚡</span>
+          <h3 class="step-title">We Run the Numbers</h3>
+          <p class="step-desc">
+            PowerSense calculates your monthly energy consumption, dollar cost, and 
+            carbon emissions using real data from the U.S. EIA and EPA. Every 
+            formula is explained.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">STEP 03 — ACT</div>
+          <span class="step-icon">📋</span>
+          <h3 class="step-title">See Exactly What to Fix</h3>
+          <p class="step-desc">
+            Your results show a ranked breakdown of every energy leak in your home, 
+            the engineering reason behind each one, and a clear action plan with 
+            estimated savings.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESULTS PREVIEW
+       Shows what the results page looks like before they commit
+  ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="preview-grid">
+
+        <div class="preview-text">
+          <div class="section-label">Your Results Dashboard</div>
+          <h2 class="section-title">More than just a number</h2>
+          <p class="preview-desc">
+            Other calculators give you a single CO2 figure and move on. PowerSense 
+            breaks down exactly where energy is escaping your home, explains why 
+            using real engineering principles, and ranks your fixes from highest 
+            to lowest impact.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">Visual breakdown of energy waste by system — heating, cooling, appliances, water heating</li>
+            <li class="feature-item">Plain language explanation of the physics behind each energy leak</li>
+            <li class="feature-item">Carbon impact in terms people actually understand, not just tons of CO2</li>
+            <li class="feature-item">Action plan ranked by estimated dollars saved per year</li>
+            <li class="feature-item">Downloadable PDF report you can keep, share, or act on later</li>
+          </ul>
+
+          <a href="audit.html" class="btn-primary">Try It Now →</a>
+        </div>
+
+        <!-- Second copy of the sample card for this section -->
+        <div class="hero-card">
+          <div class="card-header">
+            <span class="card-title">Your Energy Audit — Sample Home</span>
+            <span class="badge-warning">HIGH WASTE</span>
+          </div>
+          <div class="waste-bars">
+            <div class="waste-row">
+              <span class="waste-label">Heating</span>
+              <div class="bar-track"><div class="bar-fill red" style="width:72%"></div></div>
+              <span class="waste-pct red">72%</span>
+            </div>
+            <div class="waste-row">
+              <span class="waste-label">Cooling</span>
+              <div class="bar-track"><div class="bar-fill amber" style="width:55%"></div></div>
+              <span class="waste-pct amber">55%</span>
+            </div>
+            <div class="waste-row">
+              <span class="waste-label">Water Heater</span>
+              <div class="bar-track"><div class="bar-fill amber" style="width:40%"></div></div>
+              <span class="waste-pct amber">40%</span>
+            </div>
+            <div class="waste-row">
+              <span class="waste-label">Appliances</span>
+              <div class="bar-track"><div class="bar-fill blue" style="width:22%"></div></div>
+              <span class="waste-pct blue">22%</span>
+            </div>
+            <div class="waste-row">
+              <span class="waste-label">Lighting</span>
+              <div class="bar-track"><div class="bar-fill green" style="width:14%"></div></div>
+              <span class="waste-pct green">14%</span>
+            </div>
+          </div>
+          <div class="card-stats">
+            <div class="mini-stat">
+              <div class="mini-val red">847 kWh</div>
+              <div class="mini-lbl">Monthly Use</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-val amber">$142/mo</div>
+              <div class="mini-lbl">Est. Cost</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-val green">$480/yr</div>
+              <div class="mini-lbl">Potential Savings</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY IT MATTERS
+       Climate impact stats to reinforce the mission
+  ============================================================ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-label">Why It Matters</div>
+      <h2 class="section-title">The numbers behind the problem</h2>
+
+      <div class="impact-grid">
+
+        <div class="impact-card highlight">
+          <div class="impact-number blue">20%</div>
+          <h3 class="impact-title">Of U.S. Carbon Emissions Come From Homes</h3>
+          <p class="impact-desc">
+            Residential buildings are one of the largest sources of greenhouse gas 
+            emissions in the country. Most of that waste is preventable with simple, 
+            affordable changes.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number amber">$400B</div>
+          <h3 class="impact-title">Wasted on Unnecessary Energy Every Year</h3>
+          <p class="impact-desc">
+            American households collectively waste hundreds of billions of dollars 
+            annually on energy that escapes through poor insulation, inefficient 
+            appliances, and bad habits.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-number red">35%</div>
+          <h3 class="impact-title">Of Home Energy Never Does Useful Work</h3>
+          <p class="impact-desc">
+            Over a third of the energy the average household pays for is lost through 
+            drafty windows, old HVAC systems, and appliances running inefficiently 
+            in the background.
+          </p>
+        </div>
+
+        <div class="impact-card highlight">
+          <div class="impact-number green">$500+</div>
+          <h3 class="impact-title">What the Average Family Could Save Per Year</h3>
+          <p class="impact-desc">
+            With targeted improvements from a proper home energy audit, most 
+            households can cut their energy bill significantly without major 
+            renovations or large upfront costs.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CALL TO ACTION
+       Final push to get people to start the audit
+  ============================================================ -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2 class="cta-title">
+        Find out what your home is 
+        <span class="text-blue-light">wasting</span> right now.
+      </h2>
+      <p class="cta-sub">Free, no signup required, takes about five minutes.</p>
+      <a href="audit.html" class="btn-white">Start Your Free Audit →</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-left">
+      © 2025 PowerSense — Built by Arav Patel &nbsp;·&nbsp; Data from EIA, EPA, DOE
+    </div>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Methodology</a>
+      <a href="#" class="footer-link">Privacy</a>
+      <a href="https://github.com/arav-patel/PowerSense" class="footer-link" target="_blank">GitHub</a>
+      <a href="why.html" class="footer-link">Why It Matters</a>
+    </div>
+  </footer>
+
+</body>
+</html>
