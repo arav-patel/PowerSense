@@ -73,8 +73,7 @@ charts.js for the visualizations. The assets folder holds images and diagrams.
 
 ## About
 
-Built by Arav Patel as an independent project connecting mechanical 
-engineering concepts to a real-world problem. I am interested in energy 
+Built by Arav Patel as an aspiring mechanical engineer. I am interested in energy 
 systems and wanted to build something that helps people understand the 
 basics of how their homes use and waste energy.
 
