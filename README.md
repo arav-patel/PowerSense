@@ -12,7 +12,7 @@ sense, not just throw a number at them.
 
 ## Why I Built This
 
-Most energy calculators just give you a final number and call it a day. 
+Most energy calculators give you a final number and call it a day. 
 I wanted to build something that explains the reasoning behind that number 
 using real engineering concepts, but in plain language that anyone can understand. 
 Energy waste is a real problem, and most people have no idea how much they are 
@@ -63,19 +63,11 @@ Coming soon.
 
 ## Project Structure
 
-    powersense/
-    ├── index.html        
-    ├── audit.html        
-    ├── results.html      
-    ├── why.html          
-    ├── css/
-    │   └── styles.css    
-    ├── js/
-    │   ├── calculator.js 
-    │   └── charts.js     
-    └── assets/
-        └── images/
-```
+index.html is the landing page. audit.html is the input form and calculator. 
+results.html is where your results and visualizations show up. why.html is 
+the climate impact and mission page. The css folder holds styles.css for all 
+the styling. The js folder holds calculator.js for all the energy math and 
+charts.js for the visualizations. The assets folder holds images and diagrams.
 
 ---
 
@@ -84,7 +76,7 @@ Coming soon.
 Built by Arav Patel as an independent project connecting mechanical 
 engineering concepts to a real-world problem. I am interested in energy 
 systems and wanted to build something that helps people understand the 
-basics of how their home uses and waste energy.
+basics of how their homes use and waste energy.
 
 ---
 
