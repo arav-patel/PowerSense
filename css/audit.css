@@ -1,0 +1,465 @@
+/* ============================================================
+   POWERSENSE — Audit Form Stylesheet (audit.css)
+   This file styles only the audit form page.
+   The main styles.css handles shared components like the navbar.
+============================================================ */
+
+/* ============================================================
+   AUDIT HERO
+============================================================ */
+.audit-hero {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  padding: 110px 56px 56px;
+  text-align: center;
+}
+
+.audit-hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.audit-hero-title {
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.audit-hero-sub {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+/* ============================================================
+   PROGRESS BAR
+============================================================ */
+.progress-container {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 56px;
+  position: sticky;
+  top: 69px;
+  z-index: 50;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+}
+
+.progress-pct {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-light);
+  border-radius: 99px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+/* Step dots row */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s;
+}
+
+.progress-step.active .step-dot {
+  background: var(--blue);
+}
+
+.step-dot-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.progress-step.active .step-dot-label {
+  color: var(--blue);
+}
+
+/* ============================================================
+   AUDIT WRAPPER AND SECTIONS
+============================================================ */
+.audit-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+/* Each section is hidden by default */
+.audit-section {
+  display: none;
+}
+
+/* Only the active section shows */
+.audit-section.active {
+  display: block;
+}
+
+/* Section header with number */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--blue);
+  opacity: 0.25;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.section-desc {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   QUESTION CARDS
+============================================================ */
+.question-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+
+.question-header {
+  margin-bottom: 20px;
+}
+
+.question-label {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+/* Why we ask explanation box */
+.question-why {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--blue-light);
+  border: 1px solid var(--blue-border);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.why-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.why-text {
+  font-size: 0.78rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FORM ELEMENTS
+============================================================ */
+
+/* Dropdown select */
+.form-select {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--navy);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238896ab' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+/* Radio option cards grid */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 18px 14px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+/* Hide the actual radio input visually */
+.option-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.option-card:hover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+}
+
+/* When radio is checked, highlight the card */
+.option-card:has(input:checked) {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+.option-icon {
+  font-size: 1.6rem;
+}
+
+.option-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+
+.option-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  line-height: 1.3;
+}
+
+/* Checkbox cards grid */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.checkbox-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 18px 14px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.checkbox-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-card:hover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+}
+
+.checkbox-card:has(input:checked) {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+.checkbox-icon {
+  font-size: 1.6rem;
+}
+
+.checkbox-label {
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--navy);
+}
+
+/* ============================================================
+   SECTION NAVIGATION BUTTONS
+============================================================ */
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-next {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--blue);
+  color: #fff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+
+.btn-next:hover {
+  background: var(--navy);
+  transform: translateY(-1px);
+}
+
+.btn-back {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 14px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-back:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+/* Final submit button */
+.btn-submit {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--green);
+  color: #fff;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-submit:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+  .audit-hero {
+    padding: 100px 20px 40px;
+  }
+
+  .progress-container {
+    padding: 16px 20px;
+  }
+
+  .step-dot-label {
+    display: none;
+  }
+
+  .audit-wrapper {
+    padding: 32px 16px 64px;
+  }
+
+  .section-header {
+    gap: 12px;
+  }
+
+  .section-number {
+    font-size: 1.8rem;
+  }
+
+  .question-card {
+    padding: 20px;
+  }
+
+  .option-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerSense — Your Home Audit</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/audit.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <svg class="logo-icon" viewBox="0 0 34 34" fill="none">
+        <path d="M17 3L3 14v17h9v-7h10v7h9V14L17 3z" stroke="#1a56db" stroke-width="1.5" fill="none"/>
+        <path d="M11 20 Q17 16.5 23 20" stroke="#1a56db" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <path d="M9 24 Q17 19 25 24" stroke="#1a56db" stroke-width="1" fill="none" opacity="0.3"/>
+        <circle cx="17" cy="20" r="1.8" fill="#1a56db"/>
+      </svg>
+      <span class="logo-text">Power<span class="logo-accent">Sense</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="audit.html" class="nav-link active">Your Audit</a></li>
+      <li><a href="why.html" class="nav-link">Why It Matters</a></li>
+    </ul>
+    <a href="audit.html" class="btn-nav">Start Audit</a>
+  </nav>
+
+  <!-- AUDIT HERO -->
+  <div class="audit-hero">
+    <div class="audit-hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Free — No Signup Required
+      </div>
+      <h1 class="audit-hero-title">Your Home Energy Audit</h1>
+      <p class="audit-hero-sub">
+        11 quick questions. About 5 minutes. We will show you exactly where 
+        your home is wasting energy and what to do about it.
+      </p>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-container">
+    <div class="progress-info">
+      <span class="progress-label" id="progress-label">Section 1 of 4 — Your Home</span>
+      <span class="progress-pct" id="progress-pct">25%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width: 25%"></div>
+    </div>
+    <div class="progress-steps">
+      <div class="progress-step active" id="step-dot-1">
+        <div class="step-dot"></div>
+        <span class="step-dot-label">Your Home</span>
+      </div>
+      <div class="progress-step" id="step-dot-2">
+        <div class="step-dot"></div>
+        <span class="step-dot-label">Heating & Cooling</span>
+      </div>
+      <div class="progress-step" id="step-dot-3">
+        <div class="step-dot"></div>
+        <span class="step-dot-label">Appliances</span>
+      </div>
+      <div class="progress-step" id="step-dot-4">
+        <div class="step-dot"></div>
+        <span class="step-dot-label">Lighting</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT FORM -->
+  <div class="audit-wrapper">
+    <form id="audit-form">
+
+      <!-- ============================================================
+           SECTION 1 — YOUR HOME
+      ============================================================ -->
+      <div class="audit-section active" id="section-1">
+        <div class="section-header">
+          <div class="section-number">01</div>
+          <div>
+            <h2 class="section-title">Your Home</h2>
+            <p class="section-desc">Basic details about where you live. This helps us set the right energy rates and emission factors for your area.</p>
+          </div>
+        </div>
+
+        <!-- Q1: State -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label" for="state">What state do you live in?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Electricity prices and carbon emission rates vary by state. This sets the right numbers for your area automatically so you don't have to look anything up.</span>
+            </div>
+          </div>
+          <select class="form-select" id="state" name="state" required>
+            <option value="" disabled selected>Select your state</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+
+        <!-- Q2: Home Type -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">What type of home do you live in?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Different home types lose heat differently. A detached house has more exposed walls and roof than an apartment, which means more surface area for energy to escape through.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="home_type" value="house" required />
+              <span class="option-icon">🏠</span>
+              <span class="option-label">House</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_type" value="apartment" />
+              <span class="option-icon">🏢</span>
+              <span class="option-label">Apartment</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_type" value="townhouse" />
+              <span class="option-icon">🏘️</span>
+              <span class="option-label">Townhouse</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q3: Home Size -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">How big is your home?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Size is the biggest factor in how much energy you need to heat and cool your space. A larger home has more air volume to maintain at a comfortable temperature.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="home_size" value="small" required />
+              <span class="option-label">Under 1,000 sq ft</span>
+              <span class="option-sub">Studio or 1 bed</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_size" value="medium" />
+              <span class="option-label">1,000 – 2,000 sq ft</span>
+              <span class="option-sub">2 to 3 bedrooms</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_size" value="large" />
+              <span class="option-label">2,000 – 3,000 sq ft</span>
+              <span class="option-sub">3 to 4 bedrooms</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_size" value="xlarge" />
+              <span class="option-label">Over 3,000 sq ft</span>
+              <span class="option-sub">Large home</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q4: Number of People -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label" for="people">How many people live in your home?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">More people means more hot water use, more cooking, and more devices running at the same time. This helps us estimate your daily usage patterns accurately.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="people" value="1" required />
+              <span class="option-label">1 person</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="people" value="2" />
+              <span class="option-label">2 people</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="people" value="3-4" />
+              <span class="option-label">3 to 4 people</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="people" value="5+" />
+              <span class="option-label">5 or more</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q5: Home Age -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">When was your home built?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Older homes almost always have weaker insulation and single pane windows, which are the number one cause of energy waste. Building codes have improved significantly over the decades.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="home_age" value="pre1980" required />
+              <span class="option-label">Before 1980</span>
+              <span class="option-sub">Likely poor insulation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_age" value="1980-2000" />
+              <span class="option-label">1980 to 2000</span>
+              <span class="option-sub">Average insulation</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_age" value="post2000" />
+              <span class="option-label">After 2000</span>
+              <span class="option-sub">Better insulation standards</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="home_age" value="unsure" />
+              <span class="option-label">Not sure</span>
+              <span class="option-sub">We will use an average</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <div></div>
+          <button type="button" class="btn-next" onclick="nextSection(1)">
+            Next — Heating & Cooling →
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION 2 — HEATING & COOLING
+      ============================================================ -->
+      <div class="audit-section" id="section-2">
+        <div class="section-header">
+          <div class="section-number">02</div>
+          <div>
+            <h2 class="section-title">Heating & Cooling</h2>
+            <p class="section-desc">Heating and cooling account for about 50% of a typical home's energy use. These questions help us find where the biggest waste is happening.</p>
+          </div>
+        </div>
+
+        <!-- Q6: Heating Source -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">What is your main heating source?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Your heating source determines both the cost and the carbon footprint of keeping your home warm. Gas and oil produce direct emissions while electric systems depend on your state's energy mix.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="heating" value="gas" required />
+              <span class="option-icon">🔥</span>
+              <span class="option-label">Gas Furnace</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="heating" value="electric" />
+              <span class="option-icon">⚡</span>
+              <span class="option-label">Electric Heat</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="heating" value="heatpump" />
+              <span class="option-icon">♻️</span>
+              <span class="option-label">Heat Pump</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="heating" value="oil" />
+              <span class="option-icon">🛢️</span>
+              <span class="option-label">Oil</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="heating" value="none" />
+              <span class="option-icon">❌</span>
+              <span class="option-label">No Heating</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q7: Air Conditioning -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">Do you have air conditioning?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Cooling is the second biggest energy cost in most American homes. Air conditioners work harder and use more electricity the worse your insulation is.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="ac" value="central" required />
+              <span class="option-icon">❄️</span>
+              <span class="option-label">Yes, Central AC</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="ac" value="window" />
+              <span class="option-icon">🪟</span>
+              <span class="option-label">Yes, Window Units</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="ac" value="none" />
+              <span class="option-icon">❌</span>
+              <span class="option-label">No AC</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q8: Insulation -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">How would you describe your home's insulation?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">Insulation is what keeps the temperature you paid for inside your home instead of leaking out. Poor insulation forces your heating and cooling system to work much harder and run much longer.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="insulation" value="poor" required />
+              <span class="option-label">Poor</span>
+              <span class="option-sub">Drafty, feels cold near walls</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="insulation" value="average" />
+              <span class="option-label">Average</span>
+              <span class="option-sub">Some drafts occasionally</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="insulation" value="good" />
+              <span class="option-label">Good</span>
+              <span class="option-sub">Well sealed, rarely drafty</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="insulation" value="unsure" />
+              <span class="option-label">Not Sure</span>
+              <span class="option-sub">We will use an average</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button type="button" class="btn-back" onclick="prevSection(2)">
+            ← Back
+          </button>
+          <button type="button" class="btn-next" onclick="nextSection(2)">
+            Next — Appliances →
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION 3 — APPLIANCES
+      ============================================================ -->
+      <div class="audit-section" id="section-3">
+        <div class="section-header">
+          <div class="section-number">03</div>
+          <div>
+            <h2 class="section-title">Appliances</h2>
+            <p class="section-desc">Appliances run in the background every day and quietly add up. A few key questions help us identify which ones are costing you the most.</p>
+          </div>
+        </div>
+
+        <!-- Q9: Which Appliances -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">Which of these appliances do you have?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">These five appliances account for the majority of background energy use in most homes. Checking which ones you have helps us calculate your baseline consumption accurately.</span>
+            </div>
+          </div>
+          <div class="checkbox-grid">
+            <label class="checkbox-card">
+              <input type="checkbox" name="appliances" value="fridge" />
+              <span class="checkbox-icon">🧊</span>
+              <span class="checkbox-label">Refrigerator</span>
+            </label>
+            <label class="checkbox-card">
+              <input type="checkbox" name="appliances" value="dishwasher" />
+              <span class="checkbox-icon">🍽️</span>
+              <span class="checkbox-label">Dishwasher</span>
+            </label>
+            <label class="checkbox-card">
+              <input type="checkbox" name="appliances" value="washer" />
+              <span class="checkbox-icon">👕</span>
+              <span class="checkbox-label">Washing Machine</span>
+            </label>
+            <label class="checkbox-card">
+              <input type="checkbox" name="appliances" value="dryer" />
+              <span class="checkbox-icon">🌀</span>
+              <span class="checkbox-label">Dryer</span>
+            </label>
+            <label class="checkbox-card">
+              <input type="checkbox" name="appliances" value="oven" />
+              <span class="checkbox-icon">🍳</span>
+              <span class="checkbox-label">Electric Stove or Oven</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q10: Fridge Age -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">How old is your refrigerator?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">A refrigerator runs 24 hours a day, 7 days a week making it one of the biggest energy users in your home. An older fridge can use up to 3 times more electricity than a modern one due to worn seals and outdated compressor technology.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="fridge_age" value="new" required />
+              <span class="option-label">Under 5 years</span>
+              <span class="option-sub">Energy efficient</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="fridge_age" value="mid" />
+              <span class="option-label">5 to 10 years</span>
+              <span class="option-sub">Moderate efficiency</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="fridge_age" value="old" />
+              <span class="option-label">Over 10 years</span>
+              <span class="option-sub">Likely inefficient</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="fridge_age" value="unsure" />
+              <span class="option-label">Not sure</span>
+              <span class="option-sub">We will use an average</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button type="button" class="btn-back" onclick="prevSection(3)">
+            ← Back
+          </button>
+          <button type="button" class="btn-next" onclick="nextSection(3)">
+            Next — Lighting →
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION 4 — LIGHTING
+      ============================================================ -->
+      <div class="audit-section" id="section-4">
+        <div class="section-header">
+          <div class="section-number">04</div>
+          <div>
+            <h2 class="section-title">Lighting</h2>
+            <p class="section-desc">One last question. Lighting is one of the easiest and cheapest things to fix — so it's worth knowing where you stand.</p>
+          </div>
+        </div>
+
+        <!-- Q11: Bulb Type -->
+        <div class="question-card">
+          <div class="question-header">
+            <label class="question-label">What type of light bulbs do you mainly use?</label>
+            <div class="question-why">
+              <span class="why-icon">💡</span>
+              <span class="why-text">LED bulbs use up to 75% less energy than old incandescent bulbs and last 25 times longer. Switching to LEDs is one of the simplest and cheapest changes any household can make with an immediate impact on the energy bill.</span>
+            </div>
+          </div>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="bulbs" value="led" required />
+              <span class="option-icon">💡</span>
+              <span class="option-label">Mostly LED</span>
+              <span class="option-sub">Most efficient</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="bulbs" value="mixed" />
+              <span class="option-icon">🔆</span>
+              <span class="option-label">Mix of types</span>
+              <span class="option-sub">Some old, some new</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="bulbs" value="incandescent" />
+              <span class="option-icon">🔴</span>
+              <span class="option-label">Mostly old bulbs</span>
+              <span class="option-sub">Incandescent or CFL</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="bulbs" value="unsure" />
+              <span class="option-label">Not sure</span>
+              <span class="option-sub">We will use an average</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button type="button" class="btn-back" onclick="prevSection(4)">
+            ← Back
+          </button>
+          <button type="button" class="btn-submit" onclick="submitAudit()">
+            Calculate My Results →
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- JAVASCRIPT — handles section switching and progress bar -->
+  <script>
+    // Tracks which section the user is currently on
+    let currentSection = 1;
+
+    // Labels for each section shown in the progress bar
+    const sectionLabels = [
+      "Section 1 of 4 — Your Home",
+      "Section 2 of 4 — Heating & Cooling",
+      "Section 3 of 4 — Appliances",
+      "Section 4 of 4 — Lighting"
+    ];
+
+    // Progress percentages for each section
+    const sectionProgress = [25, 50, 75, 100];
+
+    // Move to the next section
+    function nextSection(current) {
+      // Hide current section
+      document.getElementById('section-' + current).classList.remove('active');
+
+      // Show next section
+      const next = current + 1;
+      document.getElementById('section-' + next).classList.add('active');
+
+      // Update progress bar
+      updateProgress(next);
+
+      // Scroll to top of form
+      document.querySelector('.progress-container').scrollIntoView({ behavior: 'smooth' });
+
+      currentSection = next;
+    }
+
+    // Move back to the previous section
+    function prevSection(current) {
+      document.getElementById('section-' + current).classList.remove('active');
+      const prev = current - 1;
+      document.getElementById('section-' + prev).classList.add('active');
+      updateProgress(prev);
+      document.querySelector('.progress-container').scrollIntoView({ behavior: 'smooth' });
+      currentSection = prev;
+    }
+
+    // Update the progress bar and step dots
+    function updateProgress(section) {
+      // Update label and percentage text
+      document.getElementById('progress-label').textContent = sectionLabels[section - 1];
+      document.getElementById('progress-pct').textContent = sectionProgress[section - 1] + '%';
+
+      // Update the fill bar width
+      document.getElementById('progress-fill').style.width = sectionProgress[section - 1] + '%';
+
+      // Update step dots — make completed ones active
+      for (let i = 1; i <= 4; i++) {
+        const dot = document.getElementById('step-dot-' + i);
+        if (i <= section) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      }
+    }
+
+    // Collect all form answers and send to results page
+    function submitAudit() {
+      // Gather all answers into one object
+      const answers = {
+        state:      document.getElementById('state').value,
+        home_type:  getRadio('home_type'),
+        home_size:  getRadio('home_size'),
+        people:     getRadio('people'),
+        home_age:   getRadio('home_age'),
+        heating:    getRadio('heating'),
+        ac:         getRadio('ac'),
+        insulation: getRadio('insulation'),
+        appliances: getCheckboxes('appliances'),
+        fridge_age: getRadio('fridge_age'),
+        bulbs:      getRadio('bulbs')
+      };
+
+      // Save answers to browser memory so results page can read them
+      localStorage.setItem('powersense_audit', JSON.stringify(answers));
+
+      // Go to results page
+      window.location.href = 'results.html';
+    }
+
+    // Helper: get selected radio button value
+    function getRadio(name) {
+      const selected = document.querySelector('input[name="' + name + '"]:checked');
+      return selected ? selected.value : null;
+    }
+
+    // Helper: get all checked checkbox values as an array
+    function getCheckboxes(name) {
+      const checked = document.querySelectorAll('input[name="' + name + '"]:checked');
+      return Array.from(checked).map(cb => cb.value);
+    }
+  </script>
+
+</body>
+</html>
