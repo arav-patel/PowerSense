@@ -560,6 +560,7 @@
   </div>
 
   <!-- JAVASCRIPT — handles section switching and progress bar -->
+  <script src="js/calculator.js"></script>
   <script>
     // Tracks which section the user is currently on
     let currentSection = 1;
@@ -642,6 +643,9 @@
 
       // Save answers to browser memory so results page can read them
       localStorage.setItem('powersense_audit', JSON.stringify(answers));
+
+      // Calculate results and save to localStorage
+      calculateResults();
 
       // Go to results page
       window.location.href = 'results.html';
