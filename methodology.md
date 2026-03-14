@@ -48,7 +48,7 @@ Source: U.S. Department of Energy (DOE) via [DOE Lighting](https://www.energy.go
 LED bulbs use at least 75% less energy than traditional incandescent bulbs and last 25 times longer. Lighting accounts for about 15% of an average home's electricity use.
 
 Why we use it: This lets us show users exactly how much they could save by switching to LEDs, one of the cheapest and easiest fixes available.
----
+
 ## Calculation Logic
 The calculator follows 13 steps in order: base energy by home size → occupancy adjustment → home age adjustment → insulation adjustment → heating addition → cooling addition → appliance additions → lighting adjustment → monthly cost by state rate → CO2 emissions → waste breakdown percentages → potential savings → save results to localStorage.
 Last updated: March 2026
