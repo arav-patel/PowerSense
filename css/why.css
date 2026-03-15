@@ -1,0 +1,140 @@
+/* ============================================================
+   WHY IT MATTERS — MISSION PAGE STYLES
+   ============================================================ */
+
+/* HERO SECTION */
+.why-hero {
+    background-color: var(--navy);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.why-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+}
+
+.why-hero-sub {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* PHYSICS SECTION */
+.physics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.physics-card {
+    background: #f9fafb;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.physics-icon {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.physics-title {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.physics-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--navy);
+}
+
+.physics-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+}
+
+/* MISSION SECTION */
+.mission-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.mission-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+}
+
+.mission-text p {
+    margin-bottom: 32px;
+}
+
+.quote-block {
+    border-left: 4px solid var(--blue);
+    padding-left: 32px;
+    margin: 48px 0;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* IMPACT STATS */
+.impact-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 80px 0;
+    padding: 60px;
+    background: var(--navy);
+    border-radius: 16px;
+    color: white;
+}
+
+.impact-item {
+    text-align: center;
+    flex: 1;
+}
+
+.impact-val {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--blue-pale);
+    margin-bottom: 8px;
+}
+
+.impact-lbl {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .physics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-row {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+}

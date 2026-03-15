@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why It Matters — PowerSense</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/why.css" />
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a class="logo" href="index.html">
+            <svg class="logo-icon" viewBox="0 0 34 34" fill="none">
+                <path d="M17 3L3 14v17h9v-7h10v7h9V14L17 3z" stroke="#1a56db" stroke-width="1.5" fill="none"/>
+                <path d="M11 20 Q17 16.5 23 20" stroke="#1a56db" stroke-width="1.5" fill="none" opacity="0.6"/>
+                <path d="M9 24 Q17 19 25 24" stroke="#1a56db" stroke-width="1" fill="none" opacity="0.3"/>
+                <circle cx="17" cy="20" r="1.8" fill="#1a56db"/>
+            </svg>
+            <span class="logo-text">Power<span class="logo-accent">Sense</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="audit.html" class="nav-link">Your Audit</a></li>
+            <li><a href="why.html" class="nav-link active">Why It Matters</a></li>
+        </ul>
+        <a href="audit.html" class="btn-nav">Start Audit</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="why-hero">
+        <div class="container">
+            <h1 class="why-hero-title">Efficiency is the <span class="text-blue-light">first</span> fuel.</h1>
+            <p class="why-hero-sub">Before we build more power plants, we must stop wasting the energy we already have. PowerSense was built to explain the physics of that waste.</p>
+        </div>
+    </header>
+
+    <!-- THE PHYSICS SECTION -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-label text-center">The Engineering</div>
+            <h2 class="section-title text-center" style="max-width: 100%;">How Your Home Loses Energy</h2>
+
+            <div class="physics-grid">
+                <!-- Conduction -->
+                <div class="physics-card">
+                    <span class="physics-icon">🌡️</span>
+                    <span class="physics-title">Physics Rule #1</span>
+                    <h3 class="physics-name">Conduction</h3>
+                    <p class="physics-desc">Conduction is heat transfer through solid materials. In your home, this happens through your walls, windows, and attic floor. Better insulation acts as a thermal barrier, slowing down the vibration of molecules and keeping heat where it belongs.</p>
+                </div>
+
+                <!-- Convection -->
+                <div class="physics-card">
+                    <span class="physics-icon">💨</span>
+                    <span class="physics-title">Physics Rule #2</span>
+                    <h3 class="physics-name">Convection</h3>
+                    <p class="physics-desc">Convection is heat transfer through moving air. This is the "draft" you feel. Tiny gaps around windows, doors, and electrical outlets allow conditioned air to escape, while outdoor air rushes in to replace it, forcing your HVAC to run 24/7.</p>
+                </div>
+
+                <!-- Radiation -->
+                <div class="physics-card">
+                    <span class="physics-icon">☀️</span>
+                    <span class="physics-title">Physics Rule #3</span>
+                    <h3 class="physics-name">Radiation</h3>
+                    <p class="physics-desc">Radiant heat transfer happens through electromagnetic waves. Sunlight hitting your roof and windows transfers energy directly into your home. This is why a shaded home or reflective roofing can cut cooling costs by 15-20% in the summer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE MISSION SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="mission-container">
+                <div class="section-label">The Mission</div>
+                <h2 class="section-title">Built to educate, not just calculate.</h2>
+
+                <div class="mission-text">
+                    <p>My name is Arav Patel, and I'm a high school student passionate about mechanical engineering and plan to pursue it in college. I built PowerSense because I noticed that most people waste energy without realizing it, and the tools that exist just give you a number without explaining why. Energy waste has a real impact on our planet and our lives. So I built a simple, free calculator that tells you exactly where your home is losing energy and how to fix it, backed entirely by government data. But more than a calculator, I wanted to build something that teaches the engineering behind the waste. Using fundamental physics, PowerSense creates a conclusive solution to a major problem.</p>
+
+                    <div class="quote-block">
+                        "The most sustainable kilowatt-hour is the one you never had to generate in the first place."
+                    </div>
+
+                    <p>To solve the climate crisis, we need more than new technology; we need to understand the physics of our daily lives. Every action plan in this tool is rooted in engineering principles. When you seal a window or upgrade a fridge, you aren't just saving money—you're optimizing a complex thermodynamic system.</p>
+                </div>
+
+                <div class="impact-row">
+                    <div class="impact-item">
+                        <span class="impact-val">20%</span>
+                        <span class="impact-lbl">US Emissions from Homes</span>
+                    </div>
+                    <div class="impact-item" style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                        <span class="impact-val">35%</span>
+                        <span class="impact-lbl">Avg. Home Energy Wasted</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-val">$400B</span>
+                        <span class="impact-lbl">Annual US Energy Waste</span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="audit.html" class="btn-primary">Start Your Free Audit →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-left">
+            © 2026 PowerSense — Built by Arav Patel &nbsp;·&nbsp; Data from EIA, EPA, DOE
+        </div>
+        <div class="footer-links">
+            <a href="methodology.md" class="footer-link">Methodology</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="https://github.com/arav-patel/PowerSense" class="footer-link" target="_blank">GitHub</a>
+            <a href="why.html" class="footer-link active">Why It Matters</a>
+        </div>
+    </footer>
+
+</body>
+</html>

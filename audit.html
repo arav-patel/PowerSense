@@ -578,6 +578,8 @@
 
     // Move to the next section
     function nextSection(current) {
+      if (!validateSection(current)) return;
+
       // Hide current section
       document.getElementById('section-' + current).classList.remove('active');
 
@@ -588,8 +590,8 @@
       // Update progress bar
       updateProgress(next);
 
-      // Scroll to top of form
-      document.querySelector('.progress-container').scrollIntoView({ behavior: 'smooth' });
+      // Scroll to top of page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
       currentSection = next;
     }
@@ -600,7 +602,7 @@
       const prev = current - 1;
       document.getElementById('section-' + prev).classList.add('active');
       updateProgress(prev);
-      document.querySelector('.progress-container').scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       currentSection = prev;
     }
 
@@ -624,8 +626,39 @@
       }
     }
 
+    function validateSection(sectionNum) {
+      const section = document.getElementById('section-' + sectionNum);
+
+      // Check all radio groups in this section
+      const radioGroups = {};
+      section.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radioGroups[radio.name] = radioGroups[radio.name] || false;
+        if (radio.checked) radioGroups[radio.name] = true;
+      });
+
+      for (const group in radioGroups) {
+        if (!radioGroups[group]) {
+          alert('Please answer all questions before continuing.');
+          return false;
+        }
+      }
+
+      // Check state dropdown if in section 1
+      if (sectionNum === 1) {
+        const state = document.getElementById('state').value;
+        if (!state) {
+          alert('Please select your state before continuing.');
+          return false;
+        }
+      }
+
+      return true;
+    }
+
     // Collect all form answers and send to results page
     function submitAudit() {
+      if (!validateSection(4)) return;
+
       // Gather all answers into one object
       const answers = {
         state:      document.getElementById('state').value,
@@ -663,6 +696,18 @@
       return Array.from(checked).map(cb => cb.value);
     }
   </script>
+
+  <footer class="footer">
+    <div class="footer-left">
+      © 2026 PowerSense — Built by Arav Patel &nbsp;·&nbsp; Data from EIA, EPA, DOE
+    </div>
+    <div class="footer-links">
+      <a href="methodology.md" class="footer-link">Methodology</a>
+      <a href="#" class="footer-link">Privacy</a>
+      <a href="https://github.com/arav-patel/PowerSense" class="footer-link" target="_blank">GitHub</a>
+      <a href="why.html" class="footer-link">Why It Matters</a>
+    </div>
+  </footer>
 
 </body>
 </html>

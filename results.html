@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Results — PowerSense</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/results.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/pdf-export.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a class="logo" href="index.html">
+            <svg class="logo-icon" viewBox="0 0 34 34" fill="none">
+                <path d="M17 3L3 14v17h9v-7h10v7h9V14L17 3z" stroke="#1a56db" stroke-width="1.5" fill="none" />
+                <path d="M11 20 Q17 16.5 23 20" stroke="#1a56db" stroke-width="1.5" fill="none" opacity="0.6" />
+                <path d="M9 24 Q17 19 25 24" stroke="#1a56db" stroke-width="1" fill="none" opacity="0.3" />
+                <circle cx="17" cy="20" r="1.8" fill="#1a56db" />
+            </svg>
+            <span class="logo-text">Power<span class="logo-accent">Sense</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="audit.html" class="nav-link">Your Audit</a></li>
+            <li><a href="why.html" class="nav-link">Why It Matters</a></li>
+        </ul>
+        <a href="audit.html" class="btn-nav">Start Audit</a>
+    </nav>
+
+    <!-- SECTION 1: RESULTS HERO -->
+    <header class="results-hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-stat">
+                    <span class="hero-stat-val" id="hero-monthly-cost">$0.00</span>
+                    <span class="hero-stat-lbl">Monthly Cost</span>
+                </div>
+
+                <div class="hero-center">
+                    <div class="grade-container">
+                        <svg class="grade-svg" width="220" height="220" viewBox="0 0 220 220">
+                            <circle class="grade-bg" cx="110" cy="110" r="100" transform="rotate(-90 110 110)"></circle>
+                            <circle class="grade-arc" id="grade-arc" cx="110" cy="110" r="100" stroke-dasharray="628.3"
+                                stroke-dashoffset="628.3" transform="rotate(-90 110 110)"></circle>
+                        </svg>
+                        <div class="grade-info">
+                            <span class="grade-number" id="grade-num">0.0</span>
+                            <span class="grade-total">/ 10</span>
+                        </div>
+                    </div>
+                    <p class="grade-label" id="grade-label">Calculating...</p>
+                </div>
+
+                <div class="hero-stat">
+                    <span class="hero-stat-val" id="hero-annual-savings">$0.00</span>
+                    <span class="hero-stat-lbl">Potential Annual Savings</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: WASTE BREAKDOWN -->
+    <section class="breakdown-section">
+        <div class="container">
+            <div class="breakdown-container">
+                <div class="section-label text-center">Breakdown</div>
+                <h2 class="section-title text-center" style="max-width: 100%;">Where Your Energy Goes</h2>
+
+                <!-- Chart Canvas -->
+                <div style="max-width: 400px; margin: 0 auto 60px;">
+                    <canvas id="wasteChart"></canvas>
+                </div>
+
+                <div id="waste-bars-list">
+                    <!-- Bars generated via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: ACTION PLAN -->
+    <section class="action-section">
+        <div class="container">
+            <div class="section-label">Next Steps</div>
+            <h2 class="section-title">Your Action Plan</h2>
+            <p class="section-sub">Click any card to learn more.</p>
+
+            <div class="action-grid" id="action-cards-list">
+                <!-- Cards generated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: YOUR NUMBERS -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-label">Technical Data</div>
+            <h2 class="section-title">Your Energy Profile</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-usage">0 kWh</span>
+                    <span class="stat-label">Monthly Usage</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-monthly-cost">$0.00</span>
+                    <span class="stat-label">Monthly Cost</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-annual-cost">$0.00</span>
+                    <span class="stat-label">Annual Cost</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-monthly-co2">0 lbs</span>
+                    <span class="stat-label">Monthly CO2</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-annual-co2">0 lbs</span>
+                    <span class="stat-label">Annual CO2</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: BOTTOM BUTTONS -->
+    <div class="bottom-nav">
+        <a href="index.html" class="btn-secondary">Back to Home</a>
+        <button onclick="downloadPDF()" class="btn-download">Download PDF Report</button>
+        <a href="audit.html" class="btn-primary">Retake Audit</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            © 2026 PowerSense — Built by Arav Patel &nbsp;·&nbsp; Data from EIA, EPA, DOE
+        </div>
+        <div class="footer-links">
+            <a href="methodology.md" class="footer-link">Methodology</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="https://github.com/arav-patel/PowerSense" class="footer-link" target="_blank">GitHub</a>
+            <a href="why.html" class="footer-link">Why It Matters</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let results = JSON.parse(localStorage.getItem('powersense_results'));
+            const audit = JSON.parse(localStorage.getItem('powersense_audit'));
+
+            // If results are missing but audit data exists, try to calculate them
+            if (!results && audit) {
+                if (typeof calculateResults === 'function') {
+                    calculateResults();
+                    results = JSON.parse(localStorage.getItem('powersense_results'));
+                }
+            }
+
+            if (!results || !audit) {
+                window.location.href = 'audit.html';
+                return;
+            }
+
+            renderHero(results, audit);
+            renderBreakdown(results);
+            renderActionPlan(results, audit);
+            renderStats(results);
+
+            // Initialize Chart.js visualization
+            if (typeof initWasteChart === 'function') {
+                initWasteChart(results);
+            }
+        });
+
+        function calculateGrade(results) {
+            const audit = JSON.parse(localStorage.getItem('powersense_audit')) || {};
+            let score = 10;
+
+            // Heating penalty
+            if (results.heating_pct > 30) score -= 2;
+            else if (results.heating_pct > 20) score -= 1;
+            else if (results.heating_pct > 10) score -= 0.5;
+
+            // Cooling penalty
+            if (results.cooling_pct > 25) score -= 1.5;
+            else if (results.cooling_pct > 15) score -= 0.75;
+
+            // Savings penalty
+            const savingsRatio = results.potentialMonthlySavings / results.monthlyCost;
+            if (savingsRatio > 0.3) score -= 3;
+            else if (savingsRatio > 0.2) score -= 2;
+            else if (savingsRatio > 0.1) score -= 1;
+
+            // Appliance penalty
+            if (results.appliances_pct > 20) score -= 1;
+            else if (results.appliances_pct > 10) score -= 0.5;
+
+            // Lighting penalty
+            if (audit.bulbs === 'incandescent') score -= 1;
+            else if (audit.bulbs === 'mixed') score -= 0.5;
+
+            return Math.min(10, Math.max(1, parseFloat(score.toFixed(1))));
+        }
+
+        function renderHero(results, audit) {
+            const score = calculateGrade(results);
+            const scoreNum = document.getElementById('grade-num');
+            const scoreLabel = document.getElementById('grade-label');
+            const arc = document.getElementById('grade-arc');
+
+            scoreNum.textContent = score.toFixed(1);
+
+            let color = '#dc2626'; // red
+            let label = "Poor — your home is highly inefficient";
+            if (score >= 9) {
+                color = '#16a34a'; // dark green
+                label = "Excellent — your home is very efficient";
+            } else if (score >= 7.5) {
+                color = '#22c55e'; // light green
+                label = "Good — your home is fairly efficient";
+            } else if (score >= 5) {
+                color = '#eab308'; // yellow
+                label = "Average — there is room for improvement";
+            }
+
+            scoreNum.style.color = color;
+            scoreLabel.textContent = label;
+            arc.style.stroke = color;
+
+            // Circular arc logic: circumference = 2 * PI * r = 2 * 3.14159 * 100 = 628.3
+            const circumference = 628.3;
+            const offset = circumference - (score / 10) * circumference;
+            arc.style.strokeDashoffset = offset;
+
+            document.getElementById('hero-monthly-cost').textContent = '$' + results.monthlyCost.toFixed(2);
+            document.getElementById('hero-annual-savings').textContent = '$' + results.potentialAnnualSavings.toFixed(2);
+        }
+
+        function renderBreakdown(results) {
+            const list = document.getElementById('waste-bars-list');
+            const systems = [
+                { name: 'Heating', pct: results.heating_pct, desc: 'Energy used to keep your home warm during cold months.' },
+                { name: 'Cooling', pct: results.cooling_pct, desc: 'Energy used by AC units to lower indoor temperature.' },
+                { name: 'Water Heater', pct: results.water_heater_pct, desc: 'Energy used to heat water for showers, laundry, and dishes.' },
+                { name: 'Appliances', pct: results.appliances_pct, desc: 'Energy consumed by your fridge, oven, washer, and other devices.' },
+                { name: 'Lighting', pct: results.lighting_pct, desc: 'Energy used to illuminate your home.' }
+            ];
+
+            list.innerHTML = systems.map(s => {
+                let color = '#16a34a';
+                if (s.pct > 30) color = '#dc2626';
+                else if (s.pct > 15) color = '#f59e0b';
+
+                return `
+                    <div class="waste-item">
+                        <div class="waste-top">
+                            <span class="waste-name">${s.name}</span>
+                            <span class="waste-percent" style="color: ${color}">${s.pct.toFixed(1)}%</span>
+                        </div>
+                        <div class="waste-bar-track">
+                            <div class="waste-bar-fill" style="width: ${s.pct}%; background-color: ${color}"></div>
+                        </div>
+                        <p class="waste-explanation">${s.desc}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderActionPlan(results, audit) {
+            const list = document.getElementById('action-cards-list');
+            const cards = [];
+
+            if (audit.insulation === 'poor') {
+                cards.push({
+                    priority: 'HIGH',
+                    pClass: 'priority-high',
+                    title: 'Seal & Insulate Attic',
+                    monthly: (results.monthlyCost * 0.15).toFixed(2),
+                    backWhat: 'Add insulation to your attic and seal air gaps around pipes and vents.',
+                    backWhy: 'Heat escapes through uninsulated roofs in winter and enters in summer, forcing your HVAC to work harder.',
+                    annual: (results.monthlyCost * 0.15 * 12).toFixed(2)
+                });
+            }
+
+            if (audit.fridge_age === 'old') {
+                cards.push({
+                    priority: 'MEDIUM',
+                    pClass: 'priority-medium',
+                    title: 'Upgrade Refrigerator',
+                    monthly: '8.00',
+                    backWhat: 'Replace your old fridge with a new Energy Star certified model.',
+                    backWhy: 'Old compressors and worn seals waste energy. Modern fridges use 50% less electricity.',
+                    annual: '96.00'
+                });
+            }
+
+            if (audit.bulbs === 'incandescent') {
+                cards.push({
+                    priority: 'LOW',
+                    pClass: 'priority-low',
+                    title: 'Switch to LED Bulbs',
+                    monthly: (results.monthlyCost * 0.10).toFixed(2),
+                    backWhat: 'Replace remaining incandescent bulbs with LEDs throughout your home.',
+                    backWhy: 'Old bulbs convert 90% of energy into heat, not light. LEDs use 75% less energy.',
+                    annual: (results.monthlyCost * 0.10 * 12).toFixed(2)
+                });
+            }
+
+            if (audit.home_age === 'pre1980') {
+                cards.push({
+                    priority: 'MEDIUM',
+                    pClass: 'priority-medium',
+                    title: 'Modernize Old Systems',
+                    monthly: (results.monthlyCost * 0.12).toFixed(2),
+                    backWhat: 'Install a smart thermostat and seal duct leaks in your attic or crawlspace.',
+                    backWhy: 'Leaky ducts waste the air you paid to heat or cool before it reaches your rooms.',
+                    annual: (results.monthlyCost * 0.12 * 12).toFixed(2)
+                });
+            }
+
+            if (audit.heating === 'electric') {
+                cards.push({
+                    priority: 'HIGH',
+                    pClass: 'priority-high',
+                    title: 'Switch to Heat Pump',
+                    monthly: (results.monthlyCost * 0.20).toFixed(2),
+                    backWhat: 'Replace electric baseboard or furnace heating with a high-efficiency heat pump.',
+                    backWhy: 'Electric heat creates heat through resistance. Heat pumps move heat from outside, using 3x less energy.',
+                    annual: (results.monthlyCost * 0.20 * 12).toFixed(2)
+                });
+            }
+
+            if (audit.ac === 'window') {
+                cards.push({
+                    priority: 'MEDIUM',
+                    pClass: 'priority-medium',
+                    title: 'High-Efficiency Cooling',
+                    monthly: (results.monthlyCost * 0.10).toFixed(2),
+                    backWhat: 'Consider a dual-inverter window unit or a mini-split system.',
+                    backWhy: 'Standard window units leak air around the frame. Inverter technology adjusts speed to save energy.',
+                    annual: (results.monthlyCost * 0.10 * 12).toFixed(2)
+                });
+            }
+
+            list.innerHTML = cards.map(c => `
+                <div class="flip-card" onclick="this.classList.toggle('clicked')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="priority-badge ${c.pClass}">${c.priority}</span>
+                            <h3 class="card-title">${c.title}</h3>
+                            <div class="card-savings">$${c.monthly}/mo</div>
+                            <div class="card-hint">tap to learn more</div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="back-title">What to do</h3>
+                            <p class="back-desc">${c.backWhat}</p>
+                            <h3 class="back-title">Why it works</h3>
+                            <p class="back-desc">${c.backWhy}</p>
+                            <div class="back-savings">Save $${c.annual} / year</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderStats(results) {
+            document.getElementById('stat-usage').textContent = Math.round(results.totalKwh).toLocaleString() + ' kWh';
+            document.getElementById('stat-monthly-cost').textContent = '$' + results.monthlyCost.toFixed(2);
+            document.getElementById('stat-annual-cost').textContent = '$' + results.annualCost.toFixed(2);
+            document.getElementById('stat-monthly-co2').textContent = Math.round(results.monthlyCO2) + ' lbs';
+            document.getElementById('stat-annual-co2').textContent = Math.round(results.annualCO2) + ' lbs';
+        }
+    </script>
+</body>
+
+</html>

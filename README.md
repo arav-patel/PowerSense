@@ -22,28 +22,25 @@ contributing to it or how easy some of the fixes are.
 
 ## What It Does
 
-Step-by-step home audit where you enter your home details, appliances, and 
-usage habits. Then PowerSense breaks down exactly where your energy is going, 
-explains why each system in your home wastes energy, and shows your carbon impact 
-in real-world terms that are easy to understand, and gives you a ranked action 
-plan with estimated savings in both dollars and emissions.
+Step-by-step home audit where you enter your home details, appliances, and
+usage habits. Then PowerSense breaks down exactly where your energy is going,
+explains why each system in your home wastes energy, and shows your carbon impact
+in real-world terms that are easy to understand, and gives you a ranked action
+plan with estimated savings.
 
 ---
 
 ## Data Sources
 
-All data comes from credible government and scientific sources.
+All data comes from credible government and scientific sources. No external APIs or personal data tracking.
 
-U.S. Energy Information Administration for appliance wattages, energy stats 
+U.S. Energy Information Administration for appliance wattages, energy stats
 and electricity prices by state.
 
-U.S. Environmental Protection Agency for CO2 emission factors per kWh 
+U.S. Environmental Protection Agency for CO2 emission factors per kWh
 by region.
 
 U.S. Department of Energy for typical home energy breakdown percentages.
-
-OpenWeatherMap API for local weather data used in heating and cooling 
-estimates.
 
 ---
 

@@ -218,3 +218,4 @@ function calculateResults() {
 
     localStorage.setItem('powersense_results', JSON.stringify(results));
 }
+
