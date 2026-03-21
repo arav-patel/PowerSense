@@ -54,7 +54,7 @@ GitHub Pages.
 
 ## Live Site
 
-Coming soon.
+**[https://arav-patel.github.io/PowerSense](https://arav-patel.github.io/PowerSense)**
 
 ---
 
