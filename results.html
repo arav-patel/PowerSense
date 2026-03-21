@@ -15,7 +15,8 @@
     <script src="js/calculator.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/pdf-export.js"></script>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="981df81f-394d-4f89-a6ff-756024c739ae"></script>
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="981df81f-394d-4f89-a6ff-756024c739ae"></script>
 </head>
 
 <body>
@@ -95,7 +96,7 @@
         <div class="container">
             <div class="section-label">Next Steps</div>
             <h2 class="section-title">Your Action Plan</h2>
-            <p class="section-sub">Click any card to learn more.</p>
+            <p class="section-sub" id="action-subtitle">Click any card to learn more.</p>
 
             <div class="action-grid" id="action-cards-list">
                 <!-- Cards generated via JS -->
@@ -146,7 +147,8 @@
             © 2026 PowerSense — Built by Arav Patel &nbsp;·&nbsp; Data from EIA, EPA, DOE
         </div>
         <div class="footer-links">
-            <a href="https://github.com/arav-patel/PowerSense/blob/main/methodology.md" class="footer-link">Methodology</a>
+            <a href="https://github.com/arav-patel/PowerSense/blob/main/methodology.md"
+                class="footer-link">Methodology</a>
             <a href="privacy.html" class="footer-link">Privacy</a>
             <a href="https://github.com/arav-patel/PowerSense" class="footer-link" target="_blank">GitHub</a>
             <a href="why.html" class="footer-link">Why It Matters</a>
@@ -350,6 +352,18 @@
                     backWhy: 'Standard window units leak air around the frame. Inverter technology adjusts speed to save energy.',
                     annual: (results.monthlyCost * 0.10 * 12).toFixed(2)
                 });
+            }
+
+            if (cards.length === 0) {
+                list.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #6b7280; grid-column: 1 / -1;">
+                        <div style="font-size: 2rem; margin-bottom: 16px;">✅</div>
+                        <h3 style="font-family: var(--font-sans); color: var(--navy); margin-bottom: 8px;">Your home is already efficient!</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">Based on your audit answers, your home has no major energy waste issues to address. Keep up the good work and consider retaking the audit if anything changes.</p>
+                    </div>
+                `;
+                document.getElementById('action-subtitle').style.display = 'none';
+                return;
             }
 
             list.innerHTML = cards.map(c => `
