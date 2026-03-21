@@ -311,26 +311,31 @@
               <input type="radio" name="heating" value="gas" required />
               <span class="option-icon">🔥</span>
               <span class="option-label">Gas Furnace</span>
+              <span class="option-sub">Burns natural gas to heat air</span>
             </label>
             <label class="option-card">
               <input type="radio" name="heating" value="electric" />
               <span class="option-icon">⚡</span>
               <span class="option-label">Electric Heat</span>
+              <span class="option-sub">Electric resistance heating</span>
             </label>
             <label class="option-card">
               <input type="radio" name="heating" value="heatpump" />
               <span class="option-icon">♻️</span>
               <span class="option-label">Heat Pump</span>
+              <span class="option-sub">Moves heat instead of making it, very efficient</span>
             </label>
             <label class="option-card">
               <input type="radio" name="heating" value="oil" />
               <span class="option-icon">🛢️</span>
               <span class="option-label">Oil</span>
+              <span class="option-sub">Burns heating oil, common in Northeast</span>
             </label>
             <label class="option-card">
               <input type="radio" name="heating" value="none" />
               <span class="option-icon">❌</span>
               <span class="option-label">No Heating</span>
+              <span class="option-sub">No heating system</span>
             </label>
           </div>
         </div>
@@ -349,16 +354,19 @@
               <input type="radio" name="ac" value="central" required />
               <span class="option-icon">❄️</span>
               <span class="option-label">Yes, Central AC</span>
+              <span class="option-sub">Built into your home with vents</span>
             </label>
             <label class="option-card">
               <input type="radio" name="ac" value="window" />
               <span class="option-icon">🪟</span>
               <span class="option-label">Yes, Window Units</span>
+              <span class="option-sub">Box units installed in windows</span>
             </label>
             <label class="option-card">
               <input type="radio" name="ac" value="none" />
               <span class="option-icon">❌</span>
               <span class="option-label">No AC</span>
+              <span class="option-sub">No cooling system</span>
             </label>
           </div>
         </div>
@@ -454,38 +462,43 @@
               <span class="checkbox-label">Electric Stove or Oven</span>
             </label>
           </div>
+          <p class="section-desc" style="margin-top: 16px; font-size: 0.8rem; opacity: 0.8;">
+            If none of these apply to you, leave all unchecked and press Next.
+          </p>
         </div>
 
         <!-- Q10: Fridge Age -->
-        <div class="question-card">
-          <div class="question-header">
-            <label class="question-label">How old is your refrigerator?</label>
-            <div class="question-why">
-              <span class="why-icon">💡</span>
-              <span class="why-text">A refrigerator runs 24 hours a day, 7 days a week making it one of the biggest energy users in your home. An older fridge can use up to 3 times more electricity than a modern one due to worn seals and outdated compressor technology.</span>
+        <div id="fridge-age-card" style="display: none;">
+          <div class="question-card">
+            <div class="question-header">
+              <label class="question-label">How old is your refrigerator?</label>
+              <div class="question-why">
+                <span class="why-icon">💡</span>
+                <span class="why-text">A refrigerator runs 24 hours a day, 7 days a week making it one of the biggest energy users in your home. An older fridge can use up to 3 times more electricity than a modern one due to worn seals and outdated compressor technology.</span>
+              </div>
             </div>
-          </div>
-          <div class="option-grid">
-            <label class="option-card">
-              <input type="radio" name="fridge_age" value="new" required />
-              <span class="option-label">Under 5 years</span>
-              <span class="option-sub">Energy efficient</span>
-            </label>
-            <label class="option-card">
-              <input type="radio" name="fridge_age" value="mid" />
-              <span class="option-label">5 to 10 years</span>
-              <span class="option-sub">Moderate efficiency</span>
-            </label>
-            <label class="option-card">
-              <input type="radio" name="fridge_age" value="old" />
-              <span class="option-label">Over 10 years</span>
-              <span class="option-sub">Likely inefficient</span>
-            </label>
-            <label class="option-card">
-              <input type="radio" name="fridge_age" value="unsure" />
-              <span class="option-label">Not sure</span>
-              <span class="option-sub">We will use an average</span>
-            </label>
+            <div class="option-grid">
+              <label class="option-card">
+                <input type="radio" name="fridge_age" value="new" required />
+                <span class="option-label">Under 5 years</span>
+                <span class="option-sub">Energy efficient</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="fridge_age" value="mid" />
+                <span class="option-label">5 to 10 years</span>
+                <span class="option-sub">Moderate efficiency</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="fridge_age" value="old" />
+                <span class="option-label">Over 10 years</span>
+                <span class="option-sub">Likely inefficient</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="fridge_age" value="unsure" />
+                <span class="option-label">Not sure</span>
+                <span class="option-sub">We will use an average</span>
+              </label>
+            </div>
           </div>
         </div>
 
@@ -633,6 +646,10 @@
       // Check all radio groups in this section
       const radioGroups = {};
       section.querySelectorAll('input[type="radio"]').forEach(radio => {
+        // Only validate if the question card is visible
+        if (radio.closest('.question-card') && radio.closest('.question-card').parentElement.style.display === 'none') {
+            return;
+        }
         radioGroups[radio.name] = radioGroups[radio.name] || false;
         if (radio.checked) radioGroups[radio.name] = true;
       });
@@ -690,6 +707,22 @@
       const selected = document.querySelector('input[name="' + name + '"]:checked');
       return selected ? selected.value : null;
     }
+
+    // Handle Fridge Age card visibility based on appliance selection
+    document.querySelectorAll('input[name="appliances"]').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const fridgeAgeCard = document.getElementById('fridge-age-card');
+        const fridgeChecked = document.querySelector('input[name="appliances"][value="fridge"]').checked;
+
+        if (fridgeChecked) {
+          fridgeAgeCard.style.display = 'block';
+        } else {
+          fridgeAgeCard.style.display = 'none';
+          // Clear any fridge_age selection if unchecked
+          document.querySelectorAll('input[name="fridge_age"]').forEach(radio => radio.checked = false);
+        }
+      });
+    });
 
     // Helper: get all checked checkbox values as an array
     function getCheckboxes(name) {
