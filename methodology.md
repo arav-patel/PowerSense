@@ -51,4 +51,4 @@ Why we use it: This lets us show users exactly how much they could save by switc
 
 ## Calculation Logic
 The calculator follows 13 steps in order: base energy by home size → occupancy adjustment → home age adjustment → insulation adjustment → heating addition → cooling addition → appliance additions → lighting adjustment → monthly cost by state rate → CO2 emissions → waste breakdown percentages → potential savings → save results to localStorage.
-Last updated: March 2026
+Last updated: April 2026

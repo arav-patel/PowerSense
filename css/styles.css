@@ -49,6 +49,10 @@
 }
 
 /* Reset — removes default browser spacing */
+html {
+  scroll-behavior: smooth;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
